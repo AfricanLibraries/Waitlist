@@ -14,16 +14,10 @@ const titles = ['When Truth Takes a Backseat — blue cover', 'Gapculogy', 'When
 function home() {
   app.innerHTML = `${header(true)}<main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="headline"><h1 id="headline">AFRICAN LIBRARIES</h1><p class="subtitle">African Books Publishing Platform</p><p class="intro">Home for every Author and readers</p><a class="button" href="#/join">Join waitlist</a><p class="support">Join the waitlist. Be here for the first chapter.</p><p class="free">Free to join. Free to list your books.</p></section>
-    <section class="carousel" aria-label="Books by our authors"><div class="carousel-angle"><div class="book-track">${Array.from({length:12},(_,i)=>`<div class="book"${i>3?' aria-hidden="true"':''}><img src="/assets/books.png" alt="${i>3?'':titles[i%4]}" draggable="false"></div>`).join('')}</div></div><button class="carousel-toggle" type="button" aria-pressed="false">Pause books</button></section>
+    <section class="carousel" aria-label="Books by our authors"><div class="carousel-angle"><div class="book-track">${Array.from({length:12},(_,i)=>`<div class="book"${i>3?' aria-hidden="true"':''}><img src="/assets/books.png" alt="${i>3?'':titles[i%4]}" draggable="false"></div>`).join('')}</div></div></section>
     <section class="benefits"><div class="shell"><p class="eyebrow">FOR OUR FOUNDING AUTHORS</p><h2>Your first chapter comes with more.</h2><ul class="benefit-list">${['Book advertising credits','Verified blue tick badge','Early book listings','Priority book placement'].map(x=>`<li><span aria-hidden="true">✓</span>${x}</li>`).join('')}</ul></div></section>
     <section class="faq shell" id="questions" aria-labelledby="faq-title"><div><p class="eyebrow">GOOD TO KNOW</p><h2 id="faq-title">A few questions.<br> Answered.</h2><p class="faq-intro">Everything you need to know<br>before the first chapter.</p></div><div class="faq-list">${faqs.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div></section>
   </main><footer class="footer shell">${logo(true)}<p>Rooted in Africa. Open to the world.</p></footer>`;
-  const toggle = app.querySelector('.carousel-toggle');
-  toggle.addEventListener('click', () => {
-    const paused = app.querySelector('.carousel').classList.toggle('paused');
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Play books' : 'Pause books';
-  });
 }
 function chooseRole() {
   app.innerHTML = `<div class="flow">${header()}<div class="shell"><a class="back" href="#/">← Back</a></div><main class="role" id="main" tabindex="-1"><h1>Join as</h1><p class="intro">Choose how you want to use African libraries</p><div class="role-actions"><a class="button" href="#/join/author">Join as author</a><a class="button secondary" href="#/join/reader">Join as reader</a></div><p class="role-note">Free to join. Be here for the first chapter.</p></main></div>`;
