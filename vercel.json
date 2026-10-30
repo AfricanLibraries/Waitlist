@@ -1,0 +1,3 @@
+{
+  "functions": { "server.mjs": { "includeFiles": "public/**", "maxDuration": 10 } }
+}
