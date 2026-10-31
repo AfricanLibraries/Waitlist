@@ -1,6 +1,6 @@
 import {readFile,readdir,mkdir,writeFile,copyFile} from 'node:fs/promises';
 import {extname,join} from 'node:path';
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.ttf':'font/ttf'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.jpeg':'image/jpeg','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.ttf':'font/ttf'};
 const assets={};
 async function collect(directory='public',prefix='') {
   for(const file of await readdir(directory,{withFileTypes:true})) {

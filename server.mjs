@@ -6,7 +6,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {validateEntry} from './validation.mjs';
 
 const root=resolve(fileURLToPath(new URL('./public/',import.meta.url)));
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.jpeg':'image/jpeg','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf'};
 
 export async function initializeApp({dataDirectory=process.env.DATA_DIR || (process.env.VERCEL ? '/tmp/data' : './data')}={}) {
   await mkdir(dataDirectory,{recursive:true});
